@@ -1,0 +1,3 @@
+/home/user/programming/SGL/build/CMakeFiles/edit_cache.dir
+/home/user/programming/SGL/build/CMakeFiles/rebuild_cache.dir
+/home/user/programming/SGL/build/CMakeFiles/rbedit.dir

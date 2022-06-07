@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++14 -g -rdynamic CMakeFiles/rbedit.dir/main.cpp.o -o rbedit  -lSDL2 
