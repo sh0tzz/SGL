@@ -31,7 +31,7 @@ int main()
 
 	SGL_Parent parent(renderer);
 	new SGL_Label(&parent, SGL_Rect(100,200,30,50), "hello world", SGL_Color(255,0,255,255));
-	new SGL_Label(&parent, SGL_Rect(100,250,40,50), "hello world", SGL_Color(255,0,0,255));
+	new SGL_Label(&parent, SGL_Rect(100,250,40,50), "hello world", SGL_Color(255,255,0,255));
 	new SGL_Label(&parent, SGL_Rect(80,220,30,50), "hello world", SGL_Color(255,255,255,255));
 	new SGL_Label(&parent, SGL_Rect(300,500,100,100), "hello world", SGL_Color(0,0,255,255));
 
