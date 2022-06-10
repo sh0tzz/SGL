@@ -1,22 +1,22 @@
-cmake_minimum_required (VERSION 3.0)
-set(CMAKE_BUILD_TYPE Debug)
+cmake_minimum_required(VERSION 3.0)
+project(SGL)
 
-# Below line is for using C++14 standard
+add_executable(
+    ${PROJECT_NAME}
+    main.cpp
+    SGL/SGL_Funcs.cpp
+    SGL/SGL_Parent/SGL_Parent.cpp
+    SGL/SGL_Widget/SGL_Widget.cpp
+    SGL/SGL_Label/SGL_Label.cpp
+)
+
+set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-# Our project name
-project(rbedit)
-
-add_executable(rbedit main.cpp)
-
-# For finding our SDL2 package!
 INCLUDE(FindPkgConfig)
-
-# Searching SDL2 package.
 PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
-
-# Including our external library's directory for header files!
 INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
 
-# Linking SDL2 library with our project.
-target_link_libraries(rbedit ${SDL2_LIBRARIES})
+# add_library("lSDL2_ttf")
+

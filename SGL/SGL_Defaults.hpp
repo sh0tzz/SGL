@@ -1,1 +1,0 @@
-SDL_Color SGL_DEFUALT_WIDGETBG = SGL_MakeColor(21, 21, 21, 255);
