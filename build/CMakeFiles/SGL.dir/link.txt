@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++14 -g -rdynamic CMakeFiles/SGL.dir/main.cpp.o CMakeFiles/SGL.dir/SGL/SGL_Funcs.cpp.o CMakeFiles/SGL.dir/SGL/SGL_Parent/SGL_Parent.cpp.o CMakeFiles/SGL.dir/SGL/SGL_Widget/SGL_Widget.cpp.o CMakeFiles/SGL.dir/SGL/SGL_Label/SGL_Label.cpp.o -o SGL  -lSDL2 
