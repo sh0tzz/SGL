@@ -22,6 +22,3 @@ target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
 PKG_SEARCH_MODULE(lSDL2_ttf required SDL2_ttf)
 INCLUDE_DIRECTORIES(${lSDL2_ttf_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} ${lSDL2_ttf_LIBRARIES})
-
-# add_library(lSDL2_ttf)
-
