@@ -14,9 +14,14 @@ set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 INCLUDE(FindPkgConfig)
+
 PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
 INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
 
-# add_library("lSDL2_ttf")
+PKG_SEARCH_MODULE(lSDL2_ttf required SDL2_ttf)
+INCLUDE_DIRECTORIES(${lSDL2_ttf_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} ${lSDL2_ttf_LIBRARIES})
+
+# add_library(lSDL2_ttf)
 

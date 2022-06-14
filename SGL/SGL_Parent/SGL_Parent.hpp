@@ -9,6 +9,7 @@ public:
     SGL_Parent(SDL_Renderer *renderer);
     void addWidget(SGL_Widget *widget);
     void draw();
+    SDL_Renderer* getRenderer();
 private:
     SDL_Renderer *_renderer;
     std::vector<SGL_Widget*> widgets;

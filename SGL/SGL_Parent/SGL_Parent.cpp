@@ -16,3 +16,7 @@ void SGL_Parent::draw() {
         widgets[i]->draw(_renderer);
     }
 }
+
+SDL_Renderer* SGL_Parent::getRenderer() {
+    return _renderer;
+}

@@ -5,7 +5,7 @@ SDL_Rect SGL_Rect(int x, int y, int w, int h) {
     return rect;
 }
 
-SDL_Color SGL_Color(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
+SDL_Color SGL_Color(Uint8 r, Uint8 g, Uint8 b, Uint8 a = 255) {
     SDL_Color color = {.r = r, .g = g, .b = b, .a = a};
     return color;
 }

@@ -7,12 +7,11 @@
 #define WIN_HEIGHT 480
 #define FPS 60
 
-SDL_Rect SGL_Rect(int x, int y, int w, int h);
-SDL_Color SGL_Color(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
-
 int main()
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
+	TTF_Init();
+	TTF_Font *roboto24 = TTF_OpenFont("fonts/Roboto-Regular.ttf", 24);
 
 	SDL_Window *window = SDL_CreateWindow(
 		"my window",
@@ -25,16 +24,12 @@ int main()
 		SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE
 	);
 
+	SGL_Parent parent(renderer);
+	new SGL_Label(&parent, SGL_Rect(10,200,200,50), SGL_Color(0,128,128,255), "sample text", roboto24, SGL_Color(255,255,255,255));
+	
 	SDL_Event event;
 	bool running = true;
 	Uint32 frame_start;
-
-	SGL_Parent parent(renderer);
-	new SGL_Label(&parent, SGL_Rect(100,200,30,50), "hello world", SGL_Color(255,0,255,255));
-	new SGL_Label(&parent, SGL_Rect(100,250,40,50), "hello world", SGL_Color(255,255,0,255));
-	new SGL_Label(&parent, SGL_Rect(80,220,30,50), "hello world", SGL_Color(255,255,255,255));
-	new SGL_Label(&parent, SGL_Rect(300,500,100,100), "hello world", SGL_Color(0,0,255,255));
-
 	while (running) {
 		frame_start = SDL_GetTicks();
 		while (SDL_PollEvent(&event)) {
@@ -48,7 +43,7 @@ int main()
 		SDL_RenderClear(renderer);
 
 		parent.draw();
-		
+
 		SDL_RenderPresent(renderer);
 		if ((1000/FPS) > SDL_GetTicks() - frame_start) {
 			SDL_Delay(1000/FPS - (SDL_GetTicks() - frame_start));	
@@ -56,6 +51,7 @@ int main()
 	}
 
 	SDL_DestroyWindow(window);
+	TTF_Quit();
 	SDL_Quit();
 	return 0;
 }
