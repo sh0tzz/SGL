@@ -22,7 +22,6 @@ void SGL_Label::_calc_text() {
     SDL_Surface* surface = TTF_RenderText_Blended(_font, _text.c_str(), _fg); 
 	_text_texture = SDL_CreateTextureFromSurface(_parent->getRenderer(), surface);
     SDL_FreeSurface(surface);
-
     int w, h;
     TTF_SizeUTF8(_font, _text.c_str(), &w,&h);
 	_text_rect.x = _rect.x + _rect.w/2 - w/2;
