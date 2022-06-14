@@ -19,7 +19,7 @@ void SGL_Label::draw(SDL_Renderer *renderer) {
 }
 
 void SGL_Label::_calc_text() {
-    SDL_Surface* surface = TTF_RenderText_Solid(_font, _text.c_str(), _fg); 
+    SDL_Surface* surface = TTF_RenderText_Blended(_font, _text.c_str(), _fg); 
 	_text_texture = SDL_CreateTextureFromSurface(_parent->getRenderer(), surface);
     SDL_FreeSurface(surface);
 

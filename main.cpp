@@ -23,9 +23,10 @@ int main()
 		window, -1,
 		SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE
 	);
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
 	SGL_Parent parent(renderer);
-	new SGL_Label(&parent, SGL_Rect(10,200,200,50), SGL_Color(0,128,128,255), "sample text", roboto24, SGL_Color(255,0,0,255));
+	new SGL_Label(&parent, SGL_Rect(10,200,200,50), SGL_Color(0,128,128,255), "sample text", roboto24, SGL_Color(255,255,255,255));
 	
 	SDL_Event event;
 	bool running = true;
@@ -37,7 +38,6 @@ int main()
 				break;
 			}
 		}
-
 		SDL_SetRenderDrawColor(renderer, 51, 51, 51, 255);
 		SDL_RenderClear(renderer);
 		parent.draw();
