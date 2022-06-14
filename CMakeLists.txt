@@ -5,6 +5,7 @@ add_executable(
     ${PROJECT_NAME}
     main.cpp
     SGL/SGL_Funcs.cpp
+    SGL/SGL_Clock/SGL_Clock.cpp
     SGL/SGL_Parent/SGL_Parent.cpp
     SGL/SGL_Widget/SGL_Widget.cpp
     SGL/SGL_Label/SGL_Label.cpp

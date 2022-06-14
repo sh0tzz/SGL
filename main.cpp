@@ -25,13 +25,12 @@ int main()
 	);
 
 	SGL_Parent parent(renderer);
-	new SGL_Label(&parent, SGL_Rect(10,200,200,50), SGL_Color(0,128,128,255), "sample text", roboto24, SGL_Color(255,255,255,255));
+	new SGL_Label(&parent, SGL_Rect(10,200,200,50), SGL_Color(0,128,128,255), "sample text", roboto24, SGL_Color(255,0,0,255));
 	
 	SDL_Event event;
 	bool running = true;
-	Uint32 frame_start;
+	SGL_Clock clock = SGL_Clock(60);
 	while (running) {
-		frame_start = SDL_GetTicks();
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_QUIT) {
 				running = false;
@@ -41,13 +40,10 @@ int main()
 
 		SDL_SetRenderDrawColor(renderer, 51, 51, 51, 255);
 		SDL_RenderClear(renderer);
-
 		parent.draw();
-
 		SDL_RenderPresent(renderer);
-		if ((1000/FPS) > SDL_GetTicks() - frame_start) {
-			SDL_Delay(1000/FPS - (SDL_GetTicks() - frame_start));	
-		}
+		
+		clock.tick();
 	}
 
 	SDL_DestroyWindow(window);
