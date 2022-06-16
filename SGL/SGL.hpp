@@ -1,3 +1,5 @@
+#include "SGL_Window/SGL_Window.hpp"
+#include "SGL_EventHandler/SGL_EventHandler.hpp"
 #include "SGL_Clock/SGL_Clock.hpp"
 #include "SGL_Parent/SGL_Parent.hpp"
 #include "SGL_Widget/SGL_Widget.hpp"

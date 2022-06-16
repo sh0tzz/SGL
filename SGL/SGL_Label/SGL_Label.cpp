@@ -1,5 +1,4 @@
 #include "SGL_Label.hpp"
-#include <iostream>
 
 SGL_Label::SGL_Label(SGL_Parent *parent, SDL_Rect rect, SDL_Color bg, std::string text, TTF_Font *font, SDL_Color fg) {
     _parent = parent;
@@ -13,9 +12,13 @@ SGL_Label::SGL_Label(SGL_Parent *parent, SDL_Rect rect, SDL_Color bg, std::strin
 }
 
 void SGL_Label::draw(SDL_Renderer *renderer) {
-    SDL_SetRenderDrawColor(renderer, _bg.r, _bg.g, _bg.b, _bg.a);
-    SDL_RenderFillRect(renderer, &_rect);
-    SDL_RenderCopy(renderer, _text_texture, NULL, &_text_rect);
+    if (_bg.a != 0) {
+        SDL_SetRenderDrawColor(renderer, _bg.r, _bg.g, _bg.b, _bg.a);
+        SDL_RenderFillRect(renderer, &_rect);
+    }
+    if (_text != "") {
+        SDL_RenderCopy(renderer, _text_texture, NULL, &_text_rect);
+    }
 }
 
 void SGL_Label::_calc_text() {

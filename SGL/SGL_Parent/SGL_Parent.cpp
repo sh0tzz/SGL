@@ -1,7 +1,8 @@
 #include "SGL_Parent.hpp"
 
-SGL_Parent::SGL_Parent(SDL_Renderer *renderer) {
-    _renderer = renderer;
+SGL_Parent::SGL_Parent(SGL_Window* window) {
+    _window = window;
+    _renderer = _window->getRenderer();
     widgets = {};
     widgetCount = 0;
 }

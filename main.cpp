@@ -13,40 +13,24 @@ int main()
 	TTF_Init();
 	TTF_Font *roboto24 = TTF_OpenFont("fonts/Roboto-Regular.ttf", 24);
 
-	SDL_Window *window = SDL_CreateWindow(
-		"my window",
-		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-		WIN_WIDTH, WIN_HEIGHT,
-		SDL_WINDOW_RESIZABLE
-	);
-	SDL_Renderer *renderer = SDL_CreateRenderer(
-		window, -1,
-		SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE
-	);
-	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+	SGL_Window window = SGL_Window("test title", 640, 480);
 
-	SGL_Parent parent(renderer);
-	new SGL_Label(&parent, SGL_Rect(10,200,200,50), SGL_Color(0,128,128,255), "sample text", roboto24, SGL_Color(255,255,255,255));
-	
-	SDL_Event event;
-	bool running = true;
+	SGL_Parent parent(&window);
+	new SGL_Label(&parent, SGL_Rect(10,200,200,50), SGL_Color(0,255,128,32), "hello world", roboto24, SGL_Color(255,255,255,255));
+
 	SGL_Clock clock = SGL_Clock(60);
-	while (running) {
-		while (SDL_PollEvent(&event)) {
-			if (event.type == SDL_QUIT) {
-				running = false;
-				break;
-			}
-		}
-		SDL_SetRenderDrawColor(renderer, 51, 51, 51, 255);
-		SDL_RenderClear(renderer);
+	SGL_EventHandler ehan = SGL_EventHandler(&window);
+	while (window.isRunning()) {
+		ehan.handleEvents();
+		
+		SDL_SetRenderDrawColor(window.getRenderer(), 51, 51, 51, 255);
+		SDL_RenderClear(window.getRenderer());
 		parent.draw();
-		SDL_RenderPresent(renderer);
+		SDL_RenderPresent(window.getRenderer());
 		
 		clock.tick();
 	}
-
-	SDL_DestroyWindow(window);
+	window.destroy();
 	TTF_Quit();
 	SDL_Quit();
 	return 0;
