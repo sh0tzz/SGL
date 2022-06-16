@@ -30,3 +30,11 @@ bool SGL_Window::isRunning() {
 void SGL_Window::stop() {
     _running = false;
 }
+
+SGL_Parent* SGL_Window::getParent() {
+    return _parent;
+}
+
+void SGL_Window::setParent(SGL_Parent* parent) {
+    _parent = parent;
+}

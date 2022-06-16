@@ -4,6 +4,7 @@
 #include "../SGL_Widget/SGL_Widget.hpp"
 #include "../SGL_Window/SGL_Window.hpp"
 class SGL_Widget;
+class SGL_Window;
 
 class SGL_Parent {
 public:
@@ -11,6 +12,7 @@ public:
     void addWidget(SGL_Widget *widget);
     void draw();
     SDL_Renderer* getRenderer();
+    std::vector<SDL_Rect> getWidgetRects();
 private:
     SGL_Window* _window;
     SDL_Renderer *_renderer;

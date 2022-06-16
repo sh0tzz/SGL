@@ -32,3 +32,7 @@ void SGL_Label::_calc_text() {
 	_text_rect.w = w;
 	_text_rect.h = h;
 }
+
+SDL_Rect SGL_Label::getRect() {
+    return _rect;
+}

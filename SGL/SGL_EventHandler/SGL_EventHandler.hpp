@@ -7,4 +7,5 @@ public:
     void handleEvents();
 private:
     SGL_Window* _window;
+    SGL_Parent* _parent;
 };

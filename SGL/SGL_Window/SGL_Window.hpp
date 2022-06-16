@@ -1,6 +1,8 @@
 #pragma once
 #include <SDL.h>
 #include <string>
+#include "../SGL_Parent/SGL_Parent.hpp"
+class SGL_Parent;
 
 class SGL_Window {
 public:
@@ -9,8 +11,11 @@ public:
     void destroy();
     bool isRunning();
     void stop();
+    SGL_Parent* getParent();
+    void setParent(SGL_Parent* parent);
 private:
     SDL_Window *_window;
     SDL_Renderer *_renderer;
+    SGL_Parent* _parent;
     bool _running;
 };

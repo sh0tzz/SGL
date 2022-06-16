@@ -14,9 +14,10 @@ int main()
 	TTF_Font *roboto24 = TTF_OpenFont("fonts/Roboto-Regular.ttf", 24);
 
 	SGL_Window window = SGL_Window("test title", 640, 480);
-
-	SGL_Parent parent(&window);
-	new SGL_Label(&parent, SGL_Rect(10,200,200,50), SGL_Color(0,255,128,32), "hello world", roboto24, SGL_Color(255,255,255,255));
+	SGL_Parent parent = SGL_Parent(&window);
+	window.setParent(&parent);
+	
+	new SGL_Label(&parent, SGL_Rect(100,200,200,50), SGL_Color(0,255,128,32), "hello world", roboto24, SGL_Color(255,255,255,255));
 
 	SGL_Clock clock = SGL_Clock(60);
 	SGL_EventHandler ehan = SGL_EventHandler(&window);

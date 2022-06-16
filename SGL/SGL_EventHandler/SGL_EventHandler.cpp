@@ -1,8 +1,11 @@
 #include "SGL_EventHandler.hpp"
+
 SDL_Rect SGL_Rect(int x, int y, int w, int h);
+bool SGL_Collision_RP(SDL_Rect rect, int point_x, int point_y);
 
 SGL_EventHandler::SGL_EventHandler(SGL_Window* window) {
     _window = window;
+    _parent = window->getParent();
 }
 
 void SGL_EventHandler::handleEvents() {
@@ -13,17 +16,11 @@ void SGL_EventHandler::handleEvents() {
             _window->stop();
             break;
         }
-        if (event.type == SDL_MOUSEBUTTONDOWN) {
-            
-        }
         if (event.type == SDL_MOUSEBUTTONUP) {
-            if (event.button.button = SDL_BUTTON_LEFT) {
-                if (event.motion.x >= btnrect.x && event.motion.x <= btnrect.x + btnrect.w
-                && event.motion.y >= btnrect.y && event.motion.y <= btnrect.y + btnrect.h) {
-                    SDL_Log("Hello World!\n");
-                }
-                else {
-                    SDL_Log("press babyyy\n");
+            for (auto rect : _parent->getWidgetRects()) {
+                if (SGL_Collision_RP(rect, event.motion.x, event.motion.y)) {
+                    SDL_Log("Widget %d %d %d %d hit", rect.x, rect.y, rect.w, rect.h);
+                    break;
                 }
             }
         }

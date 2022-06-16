@@ -9,6 +9,7 @@ class SGL_Label : public SGL_Widget {
 public:
     SGL_Label(SGL_Parent *parent, SDL_Rect rect, SDL_Color bg, std::string text, TTF_Font *font, SDL_Color fg);
     void draw(SDL_Renderer *renderer);
+    SDL_Rect getRect();
 private:
     SGL_Parent *_parent;
     SDL_Rect _rect;
