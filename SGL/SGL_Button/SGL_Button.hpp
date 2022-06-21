@@ -12,6 +12,11 @@ public:
     void draw(SDL_Renderer *renderer);
     SDL_Rect getRect();
     void executeCallback();
+    bool isDisabled();
+    bool toggleDisable();
+    void disable();
+    void enable();
+    bool isHittable();
 private:
     SGL_Parent *_parent;
     SDL_Rect _rect;
@@ -20,7 +25,9 @@ private:
     TTF_Font *_font;
     SDL_Color _fg;
     std::function<void()> _callback;
+
     bool _hittable;
+    bool _disabled;
 
     SDL_Texture *_text_texture;
     SDL_Rect _text_rect;

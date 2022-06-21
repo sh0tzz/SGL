@@ -40,5 +40,28 @@ SDL_Rect SGL_Button::getRect() {
 }
 
 void SGL_Button::executeCallback() {
-    _callback();
+    if (!_disabled) {
+        _callback();
+    }
+}
+
+bool SGL_Button::isDisabled() {
+    return _disabled;
+}
+
+bool SGL_Button::toggleDisable() {
+    _disabled = !_disabled;
+    return _disabled;
+}
+
+void SGL_Button::disable() {
+    _disabled = true;
+}
+
+void SGL_Button::enable() {
+    _disabled = false;
+}
+
+bool SGL_Button::isHittable() {
+    return _hittable;
 }
