@@ -10,6 +10,8 @@ public:
     SGL_Label(SGL_Parent *parent, SDL_Rect rect, SDL_Color bg, std::string text, TTF_Font *font, SDL_Color fg);
     void draw(SDL_Renderer *renderer);
     SDL_Rect getRect();
+    bool isHittable();
+    void setHittable(bool hittable);
 private:
     SGL_Parent *_parent;
     SDL_Rect _rect;
@@ -17,6 +19,7 @@ private:
     std::string _text;
     TTF_Font *_font;
     SDL_Color _fg;
+    bool _hittable;
 
     SDL_Texture *_text_texture;
     SDL_Rect _text_rect;

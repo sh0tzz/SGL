@@ -11,6 +11,7 @@ add_executable(
     SGL/SGL_Parent/SGL_Parent.cpp
     SGL/SGL_Widget/SGL_Widget.cpp
     SGL/SGL_Label/SGL_Label.cpp
+    SGL/SGL_Button/SGL_Button.cpp
 )
 
 set(CMAKE_BUILD_TYPE Debug)

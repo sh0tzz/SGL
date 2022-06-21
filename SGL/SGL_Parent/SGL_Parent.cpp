@@ -25,7 +25,9 @@ SDL_Renderer* SGL_Parent::getRenderer() {
 std::vector<SDL_Rect> SGL_Parent::getWidgetRects() {
     std::vector<SDL_Rect> rects = {};
     for (int i = 0; i < widgetCount; i++) {
-        rects.push_back(widgets[i]->getRect());
+        if (widgets[i]->isHittable()) {
+            rects.push_back(widgets[i]->getRect());
+        }
     }
     return rects;
 }

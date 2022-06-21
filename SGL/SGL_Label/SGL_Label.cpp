@@ -8,6 +8,7 @@ SGL_Label::SGL_Label(SGL_Parent *parent, SDL_Rect rect, SDL_Color bg, std::strin
     _text = text;
     _font = font;
     _fg = fg;
+    _hittable = false;
     _calc_text();
 }
 
@@ -35,4 +36,12 @@ void SGL_Label::_calc_text() {
 
 SDL_Rect SGL_Label::getRect() {
     return _rect;
+}
+
+bool SGL_Label::isHittable() {
+    return _hittable;
+}
+
+void SGL_Label::setHittable(bool hittable) {
+    _hittable = hittable;
 }
