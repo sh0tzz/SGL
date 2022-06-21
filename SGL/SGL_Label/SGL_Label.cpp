@@ -1,11 +1,11 @@
 #include "SGL_Label.hpp"
 
-SGL_Label::SGL_Label(SGL_Parent *parent, SDL_Rect rect, SDL_Color bg, std::string text, TTF_Font *font, SDL_Color fg) {
+SGL_Label::SGL_Label(SGL_Parent *parent, std::string text, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg) {
     _parent = parent;
     _parent->addWidget(this);
+    _text = text;
     _rect = rect;
     _bg = bg;
-    _text = text;
     _font = font;
     _fg = fg;
     _hittable = false;
@@ -23,11 +23,11 @@ void SGL_Label::draw(SDL_Renderer *renderer) {
 }
 
 void SGL_Label::_calc_text() {
-    SDL_Surface* surface = TTF_RenderText_Blended(_font, _text.c_str(), _fg); 
+    SDL_Surface* surface = TTF_RenderText_Blended(_font->getObject(), _text.c_str(), _fg); 
 	_text_texture = SDL_CreateTextureFromSurface(_parent->getRenderer(), surface);
     SDL_FreeSurface(surface);
     int w, h;
-    TTF_SizeUTF8(_font, _text.c_str(), &w,&h);
+    TTF_SizeUTF8(_font->getObject(), _text.c_str(), &w,&h);
 	_text_rect.x = _rect.x + _rect.w/2 - w/2;
 	_text_rect.y = _rect.y + _rect.h/2 - h/2;
 	_text_rect.w = w;

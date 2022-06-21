@@ -6,6 +6,7 @@ add_executable(
     main.cpp
     SGL/SGL_Builtins/SGL_Funcs.cpp
     SGL/SGL_Window/SGL_Window.cpp
+    SGL/SGL_Font/SGL_Font.cpp
     SGL/SGL_EventHandler/SGL_EventHandler.cpp
     SGL/SGL_Clock/SGL_Clock.cpp
     SGL/SGL_Parent/SGL_Parent.cpp

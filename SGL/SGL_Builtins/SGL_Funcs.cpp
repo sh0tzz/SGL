@@ -1,4 +1,4 @@
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 /*
     referenced in ../SGL_EventHandler/SGL_EventHandler.cpp

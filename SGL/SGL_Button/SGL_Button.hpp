@@ -1,14 +1,15 @@
 #pragma once
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <string>
 #include <functional>
 #include "../SGL_Widget/SGL_Widget.hpp"
 #include "../SGL_Parent/SGL_Parent.hpp"
+#include "../SGL_Font/SGL_Font.hpp"
 
 class SGL_Button : public SGL_Widget {
 public:
-    SGL_Button(SGL_Parent *parent, SDL_Rect rect, SDL_Color bg, std::string text, TTF_Font *font, SDL_Color fg, std::function<void()> callback);
+    SGL_Button(SGL_Parent *parent, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
     void draw(SDL_Renderer *renderer);
     SDL_Rect getRect();
     void executeCallback();
@@ -19,12 +20,12 @@ public:
     bool isHittable();
 private:
     SGL_Parent *_parent;
+    std::string _text;
+    std::function<void()> _callback;
     SDL_Rect _rect;
     SDL_Color _bg;
-    std::string _text;
-    TTF_Font *_font;
+    SGL_Font* _font;
     SDL_Color _fg;
-    std::function<void()> _callback;
 
     bool _hittable;
     bool _disabled;
