@@ -1,3 +1,5 @@
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include "SGL_Builtins/SGL_Structs.hpp"
 #include "SGL_Window/SGL_Window.hpp"
 #include "SGL_Font/SGL_Font.hpp"
