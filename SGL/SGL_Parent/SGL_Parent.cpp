@@ -22,12 +22,16 @@ SDL_Renderer* SGL_Parent::getRenderer() {
     return _renderer;
 }
 
-std::vector<SDL_Rect> SGL_Parent::getWidgetRects() {
-    std::vector<SDL_Rect> rects = {};
+std::vector<SGL_WidgetIdentifier> SGL_Parent::getWidgetRects() {
+    std::vector<SGL_WidgetIdentifier> rects = {};
     for (int i = 0; i < widgetCount; i++) {
         if (widgets[i]->isHittable()) {
-            rects.push_back(widgets[i]->getRect());
+            rects.push_back({i, widgets[i]->getRect()});
         }
     }
     return rects;
+}
+
+void SGL_Parent::executeCallback(int id) {
+    widgets[id]->executeCallback();
 }

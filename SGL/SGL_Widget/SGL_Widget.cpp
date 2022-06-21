@@ -13,3 +13,5 @@ bool SGL_Widget::isHittable() {
 void SGL_Widget::setHittable(bool hittable) {
     _hittable = hittable;
 }
+
+void SGL_Widget::executeCallback() {}

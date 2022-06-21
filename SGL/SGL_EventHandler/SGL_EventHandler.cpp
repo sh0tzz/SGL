@@ -1,4 +1,5 @@
 #include "SGL_EventHandler.hpp"
+#include "../SGL_Parent/SGL_Parent.hpp"
 
 SDL_Rect SGL_Rect(int x, int y, int w, int h);
 bool SGL_Collision_RP(SDL_Rect rect, int point_x, int point_y);
@@ -17,10 +18,9 @@ void SGL_EventHandler::handleEvents() {
             break;
         }
         if (event.type == SDL_MOUSEBUTTONUP) {
-            for (auto rect : _parent->getWidgetRects()) {
-                if (SGL_Collision_RP(rect, event.motion.x, event.motion.y)) {
-                    SDL_Log("Widget %d %d %d %d hit", rect.x, rect.y, rect.w, rect.h);
-                    break;
+            for (auto identifier : _parent->getWidgetRects()) {
+                if (SGL_Collision_RP(identifier.rect, event.motion.x, event.motion.y)) {
+                    _parent->executeCallback(identifier.id);
                 }
             }
         }
