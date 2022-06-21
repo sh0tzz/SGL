@@ -22,10 +22,10 @@ int main()
 	SGL_Parent parent = SGL_Parent(&window);
 	window.setParent(&parent);
 
-	new SGL_Label(&parent, SGL_Rect(0,0,100,100), SGL_Color(0,255,128,32), "label1", roboto18, SGL_Color(255,255,255,255));
-	new SGL_Label(&parent, SGL_Rect(100,0,100,100), SGL_TRANSPARENT, "label2", roboto18, SGL_Color(255,0,0,128));
-	new SGL_Button(&parent, SGL_Rect(0, 100, 100, 100), SGL_Color(255, 255, 0, 128), "button1", roboto18, SGL_Color(255,255,255,255), hello);
-	new SGL_Button(&parent, SGL_Rect(100, 100, 100, 100), SGL_TRANSPARENT, "button2", roboto18, SGL_Color(0,255,0,255), [](){SDL_Log("IAMGOD?XD");});
+	new SGL_Label(&parent, {0,0,100,100}, {0,255,128,32}, "label1", roboto18, {255,255,255,255});
+	new SGL_Label(&parent, {100,0,100,100}, SGL_TRANSPARENT, "label2", roboto18, {255,0,0,128});
+	new SGL_Button(&parent, {0, 100, 100, 100}, {255, 255, 0, 128}, "button1", roboto18, {255,255,255,255}, hello);
+	new SGL_Button(&parent, {100, 100, 100, 100}, SGL_TRANSPARENT, "button2", roboto18, {0,255,0,255}, [](){SDL_Log("IAMGOD?XD");});
 
 	SGL_Clock clock = SGL_Clock(60);
 	SGL_EventHandler ehan = SGL_EventHandler(&window);

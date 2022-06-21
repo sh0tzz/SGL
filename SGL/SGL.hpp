@@ -6,7 +6,4 @@
 #include "SGL_Label/SGL_Label.hpp"
 #include "SGL_Button/SGL_Button.hpp"
 
-#define SGL_TRANSPARENT SGL_Color(0,0,0,0)
-
-SDL_Rect SGL_Rect(int x, int y, int w, int h);
-SDL_Color SGL_Color(Uint8 r, Uint8 g, Uint8 b, Uint8 a = 255);
+#define SGL_TRANSPARENT {0,0,0,0}
