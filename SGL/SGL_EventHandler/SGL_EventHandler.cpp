@@ -4,8 +4,8 @@
 // declared in ../SGL_Builtins/SGL_Funcs.cpp
 bool SGL_Collision_RP(SDL_Rect rect, SDL_Point point);
 
-SGL_EventHandler::SGL_EventHandler(SGL_Window* window) {
-    _window = window;
+SGL_EventHandler::SGL_EventHandler(SGL_Window* window)
+    : _window(window) {
     _parent = window->getParent();
 }
 

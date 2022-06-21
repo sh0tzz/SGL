@@ -6,13 +6,13 @@ class SGL_Parent;
 
 class SGL_Widget {
 public:
-    virtual void draw(SDL_Renderer *renderer);
+    virtual void draw(SDL_Renderer* renderer);
     virtual SDL_Rect getRect();
     virtual bool isHittable();
     virtual void setHittable(bool hittable);
     virtual void executeCallback();
 private:
-    SGL_Parent *_parent;
+    SGL_Parent* _parent;
     SDL_Rect _rect;
     SDL_Color _color;
     std::string _text;

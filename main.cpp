@@ -5,6 +5,7 @@
 #define WIN_HEIGHT 480
 #define FPS 60
 #define WHITE {255,255,255,255}
+#define SGL_TRANSPARENT {0,0,0,0}
 
 // for testing
 void hello() {

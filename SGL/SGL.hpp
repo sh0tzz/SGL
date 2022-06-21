@@ -9,5 +9,3 @@
 #include "SGL_Widget/SGL_Widget.hpp"
 #include "SGL_Label/SGL_Label.hpp"
 #include "SGL_Button/SGL_Button.hpp"
-
-#define SGL_TRANSPARENT {0,0,0,0}

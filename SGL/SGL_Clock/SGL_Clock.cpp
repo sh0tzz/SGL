@@ -1,7 +1,7 @@
 #include "SGL_Clock.hpp"
 
-SGL_Clock::SGL_Clock(int fps) {
-    _fps = fps;
+SGL_Clock::SGL_Clock(int fps)
+    : _fps(fps) {
     _last_tick = SDL_GetTicks();
 }
 

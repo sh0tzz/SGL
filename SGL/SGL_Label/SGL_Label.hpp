@@ -8,13 +8,13 @@
 
 class SGL_Label : public SGL_Widget {
 public:
-    SGL_Label(SGL_Parent *parent, std::string text, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
-    void draw(SDL_Renderer *renderer);
+    SGL_Label(SGL_Parent* parent, std::string text, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
+    void draw(SDL_Renderer* renderer);
     SDL_Rect getRect();
     bool isHittable();
     void setHittable(bool hittable);
 private:
-    SGL_Parent *_parent;
+    SGL_Parent* _parent;
     std::string _text;
     SDL_Rect _rect;
     SDL_Color _bg;
@@ -23,7 +23,7 @@ private:
 
     bool _hittable;
 
-    SDL_Texture *_text_texture;
+    SDL_Texture* _text_texture;
     SDL_Rect _text_rect;
 
     void _calc_text();

@@ -9,8 +9,8 @@
 
 class SGL_Button : public SGL_Widget {
 public:
-    SGL_Button(SGL_Parent *parent, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
-    void draw(SDL_Renderer *renderer);
+    SGL_Button(SGL_Parent* parent, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
+    void draw(SDL_Renderer* renderer);
     SDL_Rect getRect();
     void executeCallback();
     bool isDisabled();
@@ -19,7 +19,7 @@ public:
     void enable();
     bool isHittable();
 private:
-    SGL_Parent *_parent;
+    SGL_Parent* _parent;
     std::string _text;
     std::function<void()> _callback;
     SDL_Rect _rect;
@@ -30,7 +30,7 @@ private:
     bool _hittable;
     bool _disabled;
 
-    SDL_Texture *_text_texture;
+    SDL_Texture* _text_texture;
     SDL_Rect _text_rect;
 
     void _calc_text();

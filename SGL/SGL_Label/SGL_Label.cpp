@@ -1,18 +1,13 @@
 #include "SGL_Label.hpp"
 
-SGL_Label::SGL_Label(SGL_Parent *parent, std::string text, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg) {
-    _parent = parent;
+SGL_Label::SGL_Label(SGL_Parent* parent, std::string text, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg)
+    : _parent(parent), _text(text), _rect(rect), _bg(bg), _font(font), _fg(fg) {
     _parent->addWidget(this);
-    _text = text;
-    _rect = rect;
-    _bg = bg;
-    _font = font;
-    _fg = fg;
     _hittable = false;
     _calc_text();
 }
 
-void SGL_Label::draw(SDL_Renderer *renderer) {
+void SGL_Label::draw(SDL_Renderer* renderer) {
     if (_bg.a != 0) {
         SDL_SetRenderDrawColor(renderer, _bg.r, _bg.g, _bg.b, _bg.a);
         SDL_RenderFillRect(renderer, &_rect);

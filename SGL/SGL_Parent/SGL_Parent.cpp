@@ -1,13 +1,13 @@
 #include "SGL_Parent.hpp"
 
-SGL_Parent::SGL_Parent(SGL_Window* window) {
-    _window = window;
+SGL_Parent::SGL_Parent(SGL_Window* window)
+    : _window(window) {
     _renderer = _window->getRenderer();
     widgets = {};
     widgetCount = 0;
 }
 
-void SGL_Parent::addWidget(SGL_Widget *widget) {
+void SGL_Parent::addWidget(SGL_Widget* widget) {
     widgets.push_back(widget);
     widgetCount++;
 }

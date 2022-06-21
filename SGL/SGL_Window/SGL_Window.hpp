@@ -14,8 +14,8 @@ public:
     SGL_Parent* getParent();
     void setParent(SGL_Parent* parent);
 private:
-    SDL_Window *_window;
-    SDL_Renderer *_renderer;
+    SDL_Window* _window;
+    SDL_Renderer* _renderer;
     SGL_Parent* _parent;
     bool _running;
 };
