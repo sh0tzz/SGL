@@ -6,7 +6,7 @@
 class SGL_Widget;
 class SGL_Window;
 
-typedef struct SGL_WidgetIdentifier {
+struct SGL_WidgetIdentifier {
     int id;
     SDL_Rect rect;
 };
