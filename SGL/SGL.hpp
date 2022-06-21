@@ -1,3 +1,4 @@
+#include "SGL_Builtins/SGL_Structs.hpp"
 #include "SGL_Window/SGL_Window.hpp"
 #include "SGL_EventHandler/SGL_EventHandler.hpp"
 #include "SGL_Clock/SGL_Clock.hpp"

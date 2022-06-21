@@ -3,13 +3,9 @@
 #include <vector>
 #include "../SGL_Widget/SGL_Widget.hpp"
 #include "../SGL_Window/SGL_Window.hpp"
+#include "../SGL_Builtins/SGL_Structs.hpp"
 class SGL_Widget;
 class SGL_Window;
-
-struct SGL_WidgetIdentifier {
-    int id;
-    SDL_Rect rect;
-};
 
 class SGL_Parent {
 public:
