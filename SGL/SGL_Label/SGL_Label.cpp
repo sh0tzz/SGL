@@ -35,7 +35,3 @@ SDL_Rect SGL_Label::getRect() {
 bool SGL_Label::isHittable() {
     return _hittable;
 }
-
-void SGL_Label::setHittable(bool hittable) {
-    _hittable = hittable;
-}

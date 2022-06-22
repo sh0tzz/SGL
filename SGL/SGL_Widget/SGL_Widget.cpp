@@ -10,8 +10,4 @@ bool SGL_Widget::isHittable() {
     return _hittable;
 }
 
-void SGL_Widget::setHittable(bool hittable) {
-    _hittable = hittable;
-}
-
 void SGL_Widget::executeCallback() {}

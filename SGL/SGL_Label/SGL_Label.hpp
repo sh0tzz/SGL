@@ -12,7 +12,6 @@ public:
     void draw(SDL_Renderer* renderer);
     SDL_Rect getRect();
     bool isHittable();
-    void setHittable(bool hittable);
 private:
     SGL_Parent* _parent;
     std::string _text;
