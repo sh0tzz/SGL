@@ -21,12 +21,11 @@ void SGL_Button::_calc_text() {
     SDL_Surface* surface = TTF_RenderText_Blended(_font->getObject(), _text.c_str(), _fg); 
 	_text_texture = SDL_CreateTextureFromSurface(_parent->getRenderer(), surface);
     SDL_FreeSurface(surface);
-    int w, h;
+    int x, y, w, h;
     TTF_SizeUTF8(_font->getObject(), _text.c_str(), &w,&h);
-	_text_rect.x = _rect.x + _rect.w/2 - w/2;
-	_text_rect.y = _rect.y + _rect.h/2 - h/2;
-	_text_rect.w = w;
-	_text_rect.h = h;
+	x = _rect.x + _rect.w/2 - w/2;
+	y = _rect.y + _rect.h/2 - h/2;
+	_text_rect = {x, y, w, h};
 }
 
 SDL_Rect SGL_Button::getRect() {
