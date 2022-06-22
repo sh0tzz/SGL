@@ -1,6 +1,7 @@
 #include "SGL_Window.hpp"
 
-SGL_Window::SGL_Window(std::string title, int width, int height) {
+SGL_Window::SGL_Window(std::string title, int width, int height, SDL_Color bg) 
+    : _bg(bg) {
     _window = SDL_CreateWindow(
         title.c_str(),
         SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
@@ -13,10 +14,7 @@ SGL_Window::SGL_Window(std::string title, int width, int height) {
     );
     SDL_SetRenderDrawBlendMode(_renderer, SDL_BLENDMODE_BLEND);
     _running = true;
-}
-
-SDL_Renderer* SGL_Window::getRenderer() {
-    return _renderer;
+    _parent = new SGL_Parent(_renderer);
 }
 
 void SGL_Window::destroy() {
@@ -31,10 +29,17 @@ void SGL_Window::stop() {
     _running = false;
 }
 
-SGL_Parent* SGL_Window::getParent() {
-    return _parent;
-}
-
-void SGL_Window::setParent(SGL_Parent* parent) {
-    _parent = parent;
+void SGL_Window::mainloop() {
+    SGL_Clock clock = SGL_Clock(60);
+	SGL_EventHandler ehan = SGL_EventHandler(this, _parent);
+	while (_running) {
+		ehan.handleEvents();
+		
+		SDL_SetRenderDrawColor(_renderer, _bg.r, _bg.g, _bg.b, _bg.a);
+		SDL_RenderClear(_renderer);
+		_parent->draw();
+		SDL_RenderPresent(_renderer);
+		
+		clock.tick();
+	}
 }

@@ -9,7 +9,7 @@ class SGL_Window;
 
 class SGL_Parent {
 public:
-    SGL_Parent(SGL_Window* window);
+    SGL_Parent(SDL_Renderer* renderer);
     void addWidget(SGL_Widget* widget);
     void draw();
     SDL_Renderer* getRenderer();
