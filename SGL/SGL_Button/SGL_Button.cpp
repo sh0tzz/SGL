@@ -7,6 +7,14 @@ SGL_Button::SGL_Button(SGL_Parent* parent, std::string text, std::function<void(
     _calc_text();
 }
 
+SGL_Button::SGL_Button(SGL_Window* window, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg)
+    : _text(text), _callback(callback), _rect(rect), _bg(bg), _font(font), _fg(fg) {
+    _parent = window->getParent();
+    _parent->addWidget(this);
+    _hittable = true;
+    _calc_text();
+}
+
 void SGL_Button::draw(SDL_Renderer* renderer) {
     if (_bg.a != 0) {
         SDL_SetRenderDrawColor(renderer, _bg.r, _bg.g, _bg.b, _bg.a);

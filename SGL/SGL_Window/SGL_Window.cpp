@@ -43,3 +43,7 @@ void SGL_Window::mainloop() {
 		clock.tick();
 	}
 }
+
+SGL_Parent* SGL_Window::getParent() {
+    return _parent;
+}

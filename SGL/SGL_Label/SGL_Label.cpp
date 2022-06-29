@@ -7,6 +7,14 @@ SGL_Label::SGL_Label(SGL_Parent* parent, std::string text, SDL_Rect rect, SDL_Co
     _calc_text();
 }
 
+SGL_Label::SGL_Label(SGL_Window* window, std::string text, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg)
+    : _text(text), _rect(rect), _bg(bg), _font(font), _fg(fg) {
+    _parent = window->getParent();
+    _parent->addWidget(this);
+    _hittable = false;
+    _calc_text();
+}
+
 void SGL_Label::draw(SDL_Renderer* renderer) {
     if (_bg.a != 0) {
         SDL_SetRenderDrawColor(renderer, _bg.r, _bg.g, _bg.b, _bg.a);

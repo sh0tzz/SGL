@@ -9,6 +9,7 @@
 class SGL_Label : public SGL_Widget {
 public:
     SGL_Label(SGL_Parent* parent, std::string text, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
+    SGL_Label(SGL_Window* window, std::string text, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
     void draw(SDL_Renderer* renderer);
     SDL_Rect getRect();
     bool isHittable();

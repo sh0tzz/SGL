@@ -10,6 +10,7 @@
 class SGL_Button : public SGL_Widget {
 public:
     SGL_Button(SGL_Parent* parent, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
+    SGL_Button(SGL_Window* window, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
     void draw(SDL_Renderer* renderer);
     SDL_Rect getRect();
     void executeCallback();

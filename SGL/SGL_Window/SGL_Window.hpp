@@ -13,11 +13,11 @@ public:
     bool isRunning();
     void stop();
     void mainloop();
-    SGL_Parent* _parent;//
+    SGL_Parent* getParent();
 private:
     SDL_Window* _window;
     SDL_Renderer* _renderer;
-    // SGL_Parent* _parent;
+    SGL_Parent* _parent;
     SDL_Color _bg;
     bool _running;
 };
