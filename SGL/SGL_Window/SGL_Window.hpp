@@ -1,10 +1,9 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include <string>
-#include "../SGL_Parent/SGL_Parent.hpp"
 #include "../SGL_Clock/SGL_Clock.hpp"
 #include "../SGL_EventHandler/SGL_EventHandler.hpp"
-class SGL_Parent;
+class SGL_Root;
 
 class SGL_Window {
 public:
@@ -13,11 +12,11 @@ public:
     bool isRunning();
     void stop();
     void mainloop();
-    SGL_Parent* getParent();
+    SGL_Root* getRootParent();
 private:
     SDL_Window* _window;
     SDL_Renderer* _renderer;
-    SGL_Parent* _parent;
+    SGL_Root* _root_parent;
     SDL_Color _bg;
     bool _running;
 };

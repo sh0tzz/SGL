@@ -4,15 +4,23 @@ project(SGL)
 add_executable(
     ${PROJECT_NAME}
     main.cpp
+
     SGL/SGL_Builtins/SGL_Funcs.cpp
+
     SGL/SGL_Window/SGL_Window.cpp
-    SGL/SGL_Font/SGL_Font.cpp
     SGL/SGL_EventHandler/SGL_EventHandler.cpp
     SGL/SGL_Clock/SGL_Clock.cpp
-    SGL/SGL_Parent/SGL_Parent.cpp
+
+    SGL/SGL_Font/SGL_Font.cpp
+    
+    SGL/SGL_ParentType/SGL_ParentType.cpp
+    SGL/SGL_Root/SGL_Root.cpp
+    SGL/SGL_StackPanel/SGL_StackPanel.cpp
+    
     SGL/SGL_Widget/SGL_Widget.cpp
     SGL/SGL_Label/SGL_Label.cpp
     SGL/SGL_Button/SGL_Button.cpp
+    
 )
 
 set(CMAKE_BUILD_TYPE Debug)

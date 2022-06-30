@@ -1,6 +1,6 @@
 #include "SGL_Button.hpp"
 
-SGL_Button::SGL_Button(SGL_Parent* parent, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg)
+SGL_Button::SGL_Button(SGL_ParentType* parent, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg)
     : _parent(parent), _text(text), _callback(callback), _rect(rect), _bg(bg), _font(font), _fg(fg) {
     _parent->addWidget(this);
     _hittable = true;
@@ -9,7 +9,7 @@ SGL_Button::SGL_Button(SGL_Parent* parent, std::string text, std::function<void(
 
 SGL_Button::SGL_Button(SGL_Window* window, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg)
     : _text(text), _callback(callback), _rect(rect), _bg(bg), _font(font), _fg(fg) {
-    _parent = window->getParent();
+    _parent = window->getRootParent();
     _parent->addWidget(this);
     _hittable = true;
     _calc_text();
@@ -21,7 +21,7 @@ void SGL_Button::draw(SDL_Renderer* renderer) {
         SDL_RenderFillRect(renderer, &_rect);
     }
     if (_text != "") {
-        SDL_RenderCopy(renderer, _text_texture, NULL, &_text_rect);
+        SDL_RenderCopy(renderer, _text_texture, nullptr, &_text_rect);
     }
 }
 

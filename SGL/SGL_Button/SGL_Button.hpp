@@ -4,12 +4,12 @@
 #include <string>
 #include <functional>
 #include "../SGL_Widget/SGL_Widget.hpp"
-#include "../SGL_Parent/SGL_Parent.hpp"
+#include "../SGL_Root/SGL_Root.hpp"
 #include "../SGL_Font/SGL_Font.hpp"
 
 class SGL_Button : public SGL_Widget {
 public:
-    SGL_Button(SGL_Parent* parent, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
+    SGL_Button(SGL_ParentType* parent, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
     SGL_Button(SGL_Window* window, std::string text, std::function<void()> callback, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg);
     void draw(SDL_Renderer* renderer);
     SDL_Rect getRect();
@@ -20,7 +20,7 @@ public:
     void enable();
     bool isHittable();
 private:
-    SGL_Parent* _parent;
+    SGL_ParentType* _parent;
     std::string _text;
     std::function<void()> _callback;
     SDL_Rect _rect;

@@ -1,6 +1,6 @@
 #include "SGL_Label.hpp"
 
-SGL_Label::SGL_Label(SGL_Parent* parent, std::string text, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg)
+SGL_Label::SGL_Label(SGL_ParentType* parent, std::string text, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg)
     : _parent(parent), _text(text), _rect(rect), _bg(bg), _font(font), _fg(fg) {
     _parent->addWidget(this);
     _hittable = false;
@@ -9,7 +9,7 @@ SGL_Label::SGL_Label(SGL_Parent* parent, std::string text, SDL_Rect rect, SDL_Co
 
 SGL_Label::SGL_Label(SGL_Window* window, std::string text, SDL_Rect rect, SDL_Color bg, SGL_Font* font, SDL_Color fg)
     : _text(text), _rect(rect), _bg(bg), _font(font), _fg(fg) {
-    _parent = window->getParent();
+    _parent = window->getRootParent();
     _parent->addWidget(this);
     _hittable = false;
     _calc_text();
@@ -21,7 +21,7 @@ void SGL_Label::draw(SDL_Renderer* renderer) {
         SDL_RenderFillRect(renderer, &_rect);
     }
     if (_text != "") {
-        SDL_RenderCopy(renderer, _text_texture, NULL, &_text_rect);
+        SDL_RenderCopy(renderer, _text_texture, nullptr, &_text_rect);
     }
 }
 
