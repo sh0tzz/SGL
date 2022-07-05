@@ -8,6 +8,7 @@
 #include "SGL_Clock/SGL_Clock.hpp"
 
 #include "SGL_Font/SGL_Font.hpp"
+#include "SGL_Text/SGL_Text.hpp"
 
 #include "SGL_ParentType/SGL_ParentType.hpp"
 #include "SGL_Root/SGL_Root.hpp"

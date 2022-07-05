@@ -12,6 +12,7 @@ add_executable(
     SGL/SGL_Clock/SGL_Clock.cpp
 
     SGL/SGL_Font/SGL_Font.cpp
+    SGL/SGL_Text/SGL_Text.cpp
     
     SGL/SGL_ParentType/SGL_ParentType.cpp
     SGL/SGL_Root/SGL_Root.cpp
