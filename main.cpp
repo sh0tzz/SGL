@@ -1,7 +1,6 @@
 #include <iostream>
 #include "SGL/SGL.hpp"
 
-#define kurac 69
 #define WIN_WIDTH 640
 #define WIN_HEIGHT 480
 #define FPS 60
